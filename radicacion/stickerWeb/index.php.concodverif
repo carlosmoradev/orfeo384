@@ -1,0 +1,100 @@
+<?php
+session_start();
+//ini_set('display_errors',1);
+$ruta_raiz 		= "../.."; 
+include_once "$ruta_raiz/config.php";
+$verradicado        = $_GET["verrad"];
+define('ADODB_ASSOC_CASE', 1);
+foreach ($_GET as $key=>$valor) ${$key} = $valor;
+
+$krd            = $_SESSION["krd"];
+$dependencia    = $_SESSION["dependencia"];
+$usua_doc       = $_SESSION["usua_doc"];
+$codusuario     = $_SESSION["codusuario"];
+$tip3Nombre     = $_SESSION["tip3Nombre"];
+$tip3desc       = $_SESSION["tip3desc"];
+$tip3img        = $_SESSION["tip3img"];
+
+include_once "$ruta_raiz/include/db/ConnectionHandler.php";
+if ($verradicado) $verrad = $verradicado;
+
+$numrad = $verrad;
+$db             = new ConnectionHandler($ruta_raiz);    
+
+include $ruta_raiz.'/ver_datosrad.php';    
+$copias = empty($copias)? 0: $copias;
+?>
+<html>
+<head>
+<title>Sticker web</title>
+<link rel="stylesheet" href="estilo_imprimir.css" TYPE="text/css" MEDIA="print">
+<style type="text/css">
+
+body {
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    padding-bottom:0;
+    padding-left:0;
+    padding-right:0;
+    padding-top:0
+    font-family: Arial, Helvetica, sans-serif;            
+}
+
+span{
+    font-size: 9px;
+    line-height: 10px; 
+    clear:both;
+}
+h3,p{
+    margin: 0px; 
+}
+td{
+    width:auto;
+}
+
+</style>
+</head>
+<?
+$noRad = $_REQUEST['nurad'];
+?>
+<body topmargin="5" leftmargin="0"  onload="window.print();">
+    <table width="400px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td rowspan=2>
+                <center>
+                    <img src='../../imagenes/logostikerSin.png' width='80'>
+                </center>
+            </td>
+            <td  align=left width="300px"> 
+                <span>&nbsp;<span>
+                <center>
+                <p><span><b><h3><?=$entidad_largo?></h3><b></span></p>
+                </center>
+                <span><center><img src="barcode_img.php?num=<?php echo($numrad) ?>&type=Code39&imgtype=png" width=200><center><span>
+                <p><span><b>Destino: <?=$radi_depe_actu?> <?=substr($dependenciaDestino,0,15)?>
+                 - Rem: <?=substr($remite,0,18); ?> </b></span></p>
+                <p><span  align="left"><b>
+                    Folios: <?=$radi_nume_folio?> &nbsp;&nbsp; Anexos: <?=$radi_nume_anexo?> &nbsp;&nbsp; Copias: <?=$copias?>   </b>
+                </span></p>
+
+                <span  align="left"><b>
+                    <?=substr($radi_fech_radi,0,16). " "?>  &nbsp;&nbsp; C&oacute;d veri: <?=$sgd_rad_codigoverificacion?> </b>
+                </span>
+                 <p><span><b>Consulte su tr&aacute;mite en http://www.correlibre.org</b></span></p>
+            </td>                     
+        </tr>
+<!--
+        <tr>
+            <td colspan=2 align=center>
+                <font size="1">
+                    <?=$entidad_largo?>
+                </font>
+            </td>                     
+        </tr>
+--!>
+    </table>
+</body>
+</html>
+

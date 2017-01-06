@@ -1,0 +1,408 @@
+<?php
+session_start();
+/**
+  * Modificacion Variables Globales Infometrika 2009-05
+  * Licencia GNU/GPL 
+  */
+$ruta_raiz= "..";
+
+// if(!isset($_SESSION['dependencia']))	include "../rec_session.php";
+foreach ($_GET as $key => $valor)   ${$key} = $valor;
+foreach ($_POST as $key => $valor)   ${$key} = $valor;
+
+$krd = $_SESSION["krd"];
+$dependencia = $_SESSION["dependencia"];
+$usua_doc = $_SESSION["usua_doc"];
+$codusuario = $_SESSION["codusuario"];
+$tpNumRad = $_SESSION["tpNumRad"];
+$tpPerRad = $_SESSION["tpPerRad"];
+$tpDescRad = $_SESSION["tpDescRad"];
+$tip3Nombre = $_SESSION["tip3Nombre"];
+$tip3img = $_SESSION["tip3img"];
+$tpDepeRad = $_SESSION["tpDepeRad"];
+$tip3desc = $_SESSION["tip3desc"];
+$tip3img =$_SESSION["tip3img"];
+$ruta_raiz = "..";
+
+
+/*
+ * Variables de Session de Radicacion de Mails
+ * Estas son variables que traen los valores con radicacoin de un correo Electronico
+ *
+ * @autor Orlando Burgos
+ * @version Orfeo 3.7
+ * @año 2008
+ */
+$tipoMedio = $_SESSION['tipoMedio'];
+if($tipoMedio=="eMail"){
+  
+ $ruta_raiz. "/email/connectIMAP2.php";
+	if(!$asu)
+	{
+	 $asu = $mailAsunto;
+	}
+}
+/**  Fin variables de session de Radicacion de Mail. **/
+
+$ruta_raiz = "..";
+// Modificado SGD 21-Septiembre-2007
+//define('ADODB_ASSOC_CASE', 0);
+include_once "../include/db/ConnectionHandler.php";
+//include_once "../class_control/AplIntegrada.php";
+$db = new ConnectionHandler("$ruta_raiz");
+$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+include "crea_combos_universales.php";
+//$objApl = new AplIntegrada($db);
+if($nurad)
+{
+	$nurad=trim($nurad);
+	$ent = substr($nurad,-1);
+}
+
+$no_tipo = "true";
+$imgTp1 = str_replace(".jpg", "",$tip3img[1][$ent]);
+$imgTp2 = str_replace(".jpg", "",$tip3img[2][$ent]);
+$imgTp3 = str_replace(".jpg", "",$tip3img[3][$ent]);
+$descTp1 = "alt='".$tip3desc[1][$ent]."' title='".$tip3desc[1][$ent]."'";
+$descTp2 = "alt='".$tip3desc[2][$ent]."' title='".$tip3desc[2][$ent]."'";
+$descTp3 = "alt='".$tip3desc[3][$ent]."' title='".$tip3desc[3][$ent]."'";
+$nombreTp1 = $tip3Nombre[1][$ent];
+$nombreTp2 = $tip3Nombre[2][$ent];
+$nombreTp3 = $tip3Nombre[3][$ent];
+?>
+<HTML>
+<head>
+<title>.:: Orfeo Modulo de Radicaci&acuoteo;n::.</title>
+<meta http-equiv="expires" content="99999999999">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../estilos/tabber.css" TYPE="text/css" MEDIA="screen">
+<link rel="stylesheet" href="../estilos/orfeo.css" type="text/css">
+<SCRIPT Language="JavaScript" src="../js/crea_combos_2.js"></SCRIPT>
+<script type="text/javascript" src="../js/tabber.js"></script>
+<script type='text/javascript' src="../include/ajax/usuarios/usuariosServer.php?client=all"></script>
+<script type='text/javascript' src="../include/ajax/usuarios/usuariosServer.php?stub=usuarios"></script>
+<script type='text/javascript' src="../include/ajax/radicacion/radicacionServer.php?client=all"></script>
+<script type='text/javascript' src="../include/ajax/radicacion/radicacionServer.php?stub=radicacionAjax"></script>
+<script type='text/javascript' src="../include/ajax/radicacion/buscarDirServer.php?client=all"></script>
+<script type='text/javascript' src="../include/ajax/radicacion/buscarDirServer.php?stub=buscarDir"></script>
+
+<script type='text/javascript'>
+
+// Objeto de HTML_AJAX pear para Traer usuarios
+  var remote = new usuarios({}); // pass in an empty hash so were in async mode
+  var remoteRad = new radicacionAjax({});
+  var remoteDir = new buscarDir({});
+</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+  function cargarUsuario(event){
+  
+  valorDependencia = document.getElementById("coddepe").value;
+  $.getJSON("../include/tx/json/getInfoUsReasigna.php", { id: valorDependencia}, function(usuarios){  
+   if(valorDependencia){
+     us = usuarios[0].split("-",4);
+     cadenaUs = us[0];
+     if(us[2]==2) cadenaUs = cadenaUs + "(Encargado)";
+     document.getElementById("usuarioReasigna").value=cadenaUs;
+     document.getElementById("usuarioCodigoReasigna").value=us[3];
+   }else{
+     document.getElementById("usuarioReasigna").value="";
+     document.getElementById("usuarioCodigoReasigna").value=0;
+   }
+  }
+ );
+ }
+</script>
+<script>
+function trim (myString)
+{
+return myString.replace(/^\s+/g,'').replace(/\s+$/g,'');
+}
+document.write('<style type="text/css">.tabber{display:none;}<\/style>');
+<?php
+// Convertimos los vectores de los paises, dptos y municipios creados en crea_combos_universales.php a vectores en JavaScript.
+echo arrayToJsArray($vpaisesv, 'vp');
+echo arrayToJsArray($vdptosv, 'vd');
+echo arrayToJsArray($vmcposv, 'vm');
+?>
+
+function cambIntgAp(valor){
+	fecha_hoy =  '<?=date('d')."-".date('m')."-".date('Y')?>';
+
+	if (valor!=0){
+		if  (document.formulario.fecha_gen_doc.value.length==0){
+			document.formulario.fecha_gen_doc.value=fecha_hoy;
+	} else{
+		document.formulario.fecha_gen_doc.value="";
+  }
+
+}
+}
+
+function fechf(formulario,n)
+{
+  var fechaActual = new Date();
+	fecha_doc = document.formulario.fecha_gen_doc.value;
+	dias_doc=fecha_doc.substring(0,2);
+	mes_doc=fecha_doc.substring(3,5);
+	ano_doc=fecha_doc.substring(6,10);
+	var fecha = new Date(ano_doc,mes_doc-1, dias_doc);
+  var tiempoRestante = fechaActual.getTime() - fecha.getTime();
+  var dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+  if (dias >60 && dias < 1500)
+	{
+    alert("El documento tiene fecha anterior a 60 dias!!");
+		}
+     else
+		{
+ 	  if (dias > 1500)
+		  {sftp://jlosada@172.16.0.168/home/orfeodev/jlosada/public_html/orfeointer/radicacion/NEW.php
+       alert("Verifique la fecha del documento!!");
+		   fecha_doc = "";
+			}else
+			{
+				fecha_doc = "ok";
+				if (dias < 0)
+				{
+				alert("Verifique la fecha del /*documento*/ !!, es Una fecha Superior a la Del dia de Hoy");
+				fecha_doc = "asdfa";
+				}
+
+			}
+
+		}
+	return fecha_doc;
+}
+function radicar_doc(){
+ if (
+  document.formulario.documento_us1.value != 0 &&
+  document.formulario.muni_us1.value != 0 &&
+  document.formulario.direccion_us1.value != 0 &&
+  document.formulario.coddepe.value != 0 &&
+  document.getElementById('usuarioCodigoReasigna').value != 0 &&
+  document.getElementById('fecha_gen_doc').value)
+  {
+    radicar();
+  }
+ else
+  {	
+  alert("El tipo de Documento, Remitente/Destinatario, Direccion, Fecha Oficio y Dependencia son obligatorios ");
+  }
+}
+
+function modificar_doc()
+{
+   if (document.formulario.documento_us1.value)
+    {
+       document.formulario.submit();
+	  }
+	 else
+	 {
+	   alert("Remitente/Destinatario son obligatorios ");
+	 }
+}
+function pestanas(pestana)
+{
+ <?
+   if($ent==1) $ver_pestana=""; else $ver_pestana="";
+  ?>
+	 document.getElementById('remitente').style.display = "";
+   document.getElementById('predio').style.display = "<?=$ver_pestana?>";
+   document.getElementById('empresa').style.display = "<?=$ver_pestana?>";
+  if(pestana==1) {
+   document.getElementById('pes1').style.display = "";
+   
+   }else
+   {
+    document.getElementById('pes1').style.display = "none";
+   }
+  if(pestana==2)
+  {
+  document.getElementById('pes2').style.display = "";
+   }else{document.getElementById('pes2').style.display = "none";}
+  if(pestana==3) {
+  document.getElementById('pes3').style.display = "";
+  }
+  else
+  {document.getElementById('pes3').style.display = "none";}
+}
+function pb1()
+{
+   dato1 = document.forma.no_documento.value;
+}
+function Start(URL, WIDTH, HEIGHT) {
+ windowprops = "top=0,left=0,location=no,status=no, menubar=no,scrollbars=yes, resizable=yes,width=1100,height=550";
+ preview = window.open(URL , "preview", windowprops);
+}
+function doPopup() {
+ url = "popup.htm";
+ width = 800; // ancho en pixels
+ height = 320; // alto en pixels
+ delay = 2; // tiempo de delay en segundos
+ timer = setTimeout("Start(url, width, height)", delay*1000);
+}
+function verDatosRad(noRad) {
+ url = "../verradicado.php?verrad="+noRad+"&krd=<?=$krd?>&datoVer=985&ruta_raiz=..";
+ width = 800; // ancho en pixels
+ height = 320; // alto en pixels
+ delay = 2; // tiempo de delay en segundos
+ timer = setTimeout("Start(url, width, height)", delay*1000);
+}
+function buscar_usuario()
+{
+   document.write('<form target=Buscar_Usuario name=formb action=buscar_usuario.php?envio_salida=true&ent=<?=$ent?> method=POST>');
+   document.write("<input type='hidden' name=no_documento value='" + documento +"'>");
+   document.write("</form> ");
+}
+function regresar(){
+i=1;
+}
+
+ function radicar(){
+  var datosRad = new Array(20);
+  datosRad['tipoRadicado'] = <?=$ent?>;
+  datosRad['radiDepeRadi'] = <?=$dependencia?>;
+  datosRad['radiDepeActu'] = document.getElementById('coddepe').value;
+  datosRad['radiUsuaActu'] = document.getElementById('usuarioCodigoReasigna').value;
+  datosRad['radiUsuaRadi'] = <?=$codusuario?>;
+  datosRad['usuaDoc'] = <?=$usua_doc?>;
+  datosRad['dependenciaSecuencia'] = <?=$tpDepeRad[$ent]?>;
+  datosRad['asunto'] = document.getElementById('asu').value;
+  datosRad['cuentai'] = "'" + document.getElementById('cuentai').value + "'";
+  datosRad['tipoRemitente'] = document.getElementById('tipo_emp_us1').value;
+  datosRad['fechaOficio'] = document.getElementById('fecha_gen_doc').value;
+  datosRad['med'] = document.getElementById('med').value;
+  if(document.getElementById('tdoc')){
+     datosRad['tipoDocumento'] = document.getElementById('tdoc').value;
+  }else{
+    datosRad['tipoDocumento'] = '0';
+  }
+  if(document.getElementById('documento_us3').value>=1){
+    datosRad['documentoUs3']=document.getElementById('documento_us3').value;
+  }else{  
+    datosRad['documentoUs3']="0";
+  }
+  datosRad['radiPais'] = document.getElementById('idpais1').value;
+  <? if(!$radicadopadre) $radicadopadre='0'; ?>
+  datosRad['radicadoPadre'] = '<?=$radicadopadre?>';
+  datosRad['carpetaPer'] = '0';
+  <? if(!$ent) $ent="0"; ?>
+  <?
+  if($ent==2){
+   $carpetaCodi = '0';
+  }else{
+   $carpetaCodi = "'".$ent."'";
+  }
+  ?>
+  datosRad['carpetaCodi'] = <?=$carpetaCodi?>;
+  datosRad['radiPath'] = '';
+  datosRad['tDidCodi'] = '0';
+  datosRad['ane'] = document.getElementById('ane').value;
+
+  remoteRad.newRadicadoAjax('noRadicado',datosRad['asunto'] 
+                            ,datosRad['tipoRadicado'] 
+                            ,datosRad['radiDepeRadi']
+                            ,datosRad['radiDepeActu']
+                            ,datosRad['dependenciaSecuencia']
+                            ,datosRad['radiUsuaRadi']
+                            ,datosRad['radiUsuaActu']
+                            ,datosRad['usuaDoc']
+                            ,datosRad['cuentai']
+                            ,datosRad['documentoUs3']
+                            ,datosRad['med']
+                            ,datosRad['fechaOficio']
+                            ,datosRad['radicadoPadre']
+                            ,datosRad['radiPais']
+                            ,datosRad['tipoDocumento']
+                            ,datosRad['carpetaPer']
+                            ,datosRad['carpetaCodi']
+                            ,datosRad['tDidCodi']
+                            ,datosRad['tipoRemitente']
+							,datosRad['ane']
+							,datosRad['radiPath']
+                            );
+     
+}
+
+function grabarDirecciones(radiNumeRadi){
+    var datosRad = new Array(20);
+  nombre = document.getElementById('nombre_us1').value;
+  apellido1 = document.getElementById('prim_apel_us1').value;
+  apellido2 = document.getElementById('seg_apel_us1').value;
+  grbNombresUs = trim(nombre) + ' '+ trim(apellido1) + ' ' + trim(apellido2);
+  datosRad['grbNombresUs'] = grbNombresUs;
+  datosRad['ccDocumento'] = document.getElementById('cc_documento_us1').value;
+  
+  ubicacion = document.getElementById('muni_us1').value;
+  ubicacionM = ubicacion.split("-",4);
+  datosRad['muniCodi'] = ubicacionM[2];
+  datosRad['dptoCodi'] = ubicacionM[1];
+  datosRad['idPais'] = ubicacionM[0];
+  datosRad['idCont'] = document.getElementById('idcont1').value;
+  funCodigo=0; oemCodigo=0; espCodigo=0; ciuCodigo=0;
+  if(document.getElementById('tipo_emp_us1').value==0) ciuCodigo=document.getElementById('documento_us1').value;
+  if(document.getElementById('tipo_emp_us1').value==1) espCodigo=document.getElementById('documento_us1').value;
+  if(document.getElementById('tipo_emp_us1').value==2) oemCodigo=document.getElementById('documento_us1').value;
+  if(document.getElementById('tipo_emp_us1').value==6) funCodigo=document.getElementById('documento_di').value;
+  datosRad['direccion'] = document.getElementById('direccion_us1').value;
+  datosRad['dirTelefono'] = document.getElementById('telefono_us1').value;
+  datosRad['dirMail'] = document.getElementById('mail_us1').value;
+  datosRad['dirNombre'] = document.getElementById('otro_us1').value;
+  datosRad['asunto'] = document.getElementById('asu').value;
+  datosRad['cuentai'] = "'" + document.getElementById('cuentai').value + "'";
+  datosRad['fechaOficio'] = document.getElementById('fecha_gen_doc').value;
+  datosRad['med'] = document.getElementById('med').value;
+  datosRad['ane'] = document.getElementById('ane').value;
+  remoteRad.insertDireccionAjax(radiNumeRadi,1,0,datosRad['grbNombresUs'],datosRad['ccDocumento'],
+     datosRad['muniCodi'],datosRad['dptoCodi'],datosRad['idPais'],datosRad['idCont'],
+     funCodigo, oemCodigo, ciuCodigo, espCodigo,
+     datosRad['direccion'],datosRad['dirTelefono'],datosRad['dirMail'],datosRad['dirNombre']
+	 ,datosRad['asunto'],datosRad['cuentai'],datosRad['fechaOficio'],datosRad['med'],datosRad['ane']
+     );
+ 
+  
+  /**
+   * Aqui se graba el Segundo Destinatario
+  */
+  if(document.getElementById('cc_documento_us2').value){
+  var datosRad = new Array(20);
+  nombre = ""; apellido1=""; apellido2="";
+  nombre = document.getElementById('nombre_us2').value;
+  apellido1 = document.getElementById('prim_apel_us2').value;
+  apellido2 = document.getElementById('seg_apel_us2').value;
+  grbNombresUs = trim(nombre) + ' '+ trim(apellido1) + ' ' + trim(apellido2);
+  datosRad['grbNombresUs'] = grbNombresUs;
+  datosRad['ccDocumento'] = document.getElementById('cc_documento_us2').value;
+  
+  ubicacion = document.getElementById('muni_us2').value;
+  ubicacionM = ubicacion.split("-",4);
+  datosRad['muniCodi'] = ubicacionM[2];
+  datosRad['dptoCodi'] = ubicacionM[1];
+  datosRad['idPais'] = ubicacionM[0];
+  datosRad['idCont'] = document.getElementById('idcont2').value;
+  funCodigo=0; oemCodigo=0; espCodigo=0; ciuCodigo=0;
+  if(document.getElementById('tipo_emp_us2').value==0) ciuCodigo=document.getElementById('documento_us2').value;
+  if(document.getElementById('tipo_emp_us2').value==1) espCodigo=document.getElementById('documento_us2').value;
+  if(document.getElementById('tipo_emp_us2').value==2) oemCodigo=document.getElementById('documento_us2').value;
+  if(document.getElementById('tipo_emp_us2').value==6) funCodigo=document.getElementById('documento_us2').value;
+  datosRad['direccion'] = document.getElementById('direccion_us2').value;
+  datosRad['dirTelefono'] = document.getElementById('telefono_us2').value;
+  datosRad['dirMail'] = document.getElementById('mail_us2').value;
+  datosRad['dirNombre'] = document.getElementById('otro_us2').value;
+  remoteRad.insertDireccionAjax(radiNumeRadi,2,0,datosRad['grbNombresUs'],datosRad['ccDocumento'],
+                      datosRad['muniCodi'],datosRad['dptoCodi'],datosRad['idPais'],datosRad['idCont'],
+                      funCodigo, oemCodigo, ciuCodigo, espCodigo,
+                      datosRad['direccion'],datosRad['dirTelefono'],datosRad['dirMail'],datosRad['dirNombre']
+                      );
+  
+  }
+   
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" onLoad="document.getElementById('grabarDir').style.visibility='hidden';">
+   <div id="spiffycalendar" class="text"></div>
+    <div id="busquedaOrfeo" style="border-right: #000000 1px solid; border-top: #000000 1px solid; border-left: #000000 1px solid; border-bottom: #000000 1px solid; font-family: Arial, Tahoma; background-color: #e6e6fa; position: absolute;">
+    <table class=borde_tab><tr><td>Buscarod...</td><tr></table></div>	
+   <link rel="stylesheet" type="text/css" href="../js/spiffyCal/spiffyCal_v2_1.css">
+ <s

@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'BebasRegular';
+    src: url('fonts/BEBAS___-webfont.eot');
+    src: url('fonts/BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BEBAS___-webfont.woff') format('woff'),
+         url('fonts/BEBAS___-webfont.ttf') format('truetype'),
+         url('fonts/BEBAS___-webfont.svg#BebasRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-size:0.8em;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#3a3a3a;
+}
+
+.body {
+	width:576px;
+	margin:0;
+	display:block;
+}
+
+h1 {
+	width:498px;
+	height:64px;
+	background:url(images/h1-bg.jpg);
+	color:#fff;
+	font-family:bebas;
+	padding:17px 0px 0px 78px;
+	letter-spacing:1px;
+	font-size:2.2em;
+	margin:0 auto;
+}
+
+form {
+	width:90%;
+	margin:0 auto;
+}
+label {
+	display:block;
+	margin-top:2px;
+	letter-spacing:2px;
+}
+label:onclick, label:focus {
+	display:block;
+	margin-top:2px;
+	background-color:yellow;
+	letter-spacing:5px;
+}
+input, textarea {
+	width:239px;
+	background:#efefef;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #dedede;
+	padding:1px;
+	margin-top:1px;
+	font-size:1.0em;
+	color:#3a3a3a;
+}
+input:focus, textarea:focus {
+		border:1px solid #97d6eb;
+	}
+textarea {
+  width:439px;
+	background:url(../imagenes/gnu_tras.png) top right no-repeat #efefef;
+}
+
+#submit {
+	background:url(images/submit.jpg);
+	height:60px;
+	text-indent:-9999px;
+	border:none;
+	margin-top:10px;
+	cursor:pointer;
+}
+
+	#submit:hover {
+		opacity:0.9;
+	}
+footer a img {
+	border:none;
+	float:right;
+	margin:0px 59px 40px 0px;
+}

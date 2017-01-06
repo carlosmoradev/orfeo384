@@ -1,0 +1,139 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+Title : Wufoo Form Structure
+Author : Infinity Box Inc.
+URL : http://wufoo.com
+
+Last Updated : September 30, 2008
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+body{
+	margin:7px 0 15px 0;
+	text-align:center;
+	font-size:small;
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+
+#container{
+	text-align:left;
+	background:#fff;
+    border-style: solid;
+    border-color: #015967;
+    background-color: #E3E8EC;
+
+}
+#container, #top, #bottom, #footer{
+	margin:0 auto;
+	width:640px;
+}
+
+#encabezado{
+    background: url("../../imagenes/min_cabezote.gif") no-repeat scroll 0 0 #227384;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    height: 24px;
+    padding-right: 10px;
+    padding-top: 42px;
+    text-align: right;
+}
+
+#top, #bottom
+	width:650px;
+	height:10px !important;
+	display:block !important;
+}
+#top{
+	margin-top:10px;
+}
+
+#formularioConsultaPQRSP{
+	float:left;
+	width:300px;
+}
+
+#formularioConsultaWeb{
+	float: left;
+	width:300px;
+}
+
+
+#formsContainer {
+	margin:0 auto;
+	width:640px;
+	overflow:hidden;
+}
+	
+form.wufoo{
+	margin:20px 20px 0 20px;
+	padding:0 0 20px 0;
+}
+
+/* ----- LOGO ----- */
+
+h1{
+	margin:0;
+	padding:0;
+	min-height:0;
+	background-color:#dedede;
+	text-indent:-9000px;
+	text-decoration:none;
+}
+
+img, a img{
+	border:none;
+}
+
+* html img { 
+	behavior: url(/images/iepngfix.htc);
+}
+
+.hide{
+	display:none !important;
+}
+
+.pqrshare1{
+    font-size: 15px;
+    width: 100%;
+    border: thin solid #377584;
+    border: 10px 10px 10px 10px;
+}
+
+.titulos4{
+    background-color: #38A5C9;
+    color: #FFFFFF;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-style: bold;
+    font-weight: bolder;
+    height: 30px;
+    line-height: 10px;
+    text-indent: 5pt;
+    text-transform: uppercase;
+}
+
+
+.listado1 {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    height: 30px;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.listado2 {
+    color: #000000;
+    background-color: #bde0ec;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+}

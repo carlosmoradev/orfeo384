@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>:: Ministerio de la correlibre :: Formulario PQRS</title>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/structure.css" type="text/css" />
+<link rel="stylesheet" href="css/form.css" type="text/css" />
+
+<!-- JavaScript -->
+<script type="text/javascript" src="scripts/wufoo.js"></script>
+<!-- prototype -->
+<script type="text/javascript" src="prototype.js"></script>
+<!--funciones-->
+<script type="text/javascript" src="ajax.js"></script>
+
+</head>
+
+<body id="public">
+
+<div id="container"
+	style="background-image: url(../imagenes/logoOrfeoFondo.gif);">
+
+<h1>&nbsp;</h1>
+
+<form id="contactoOrfeo" class="wufoo topLabel" autocomplete="on"
+	enctype="multipart/form-data" method="GET" action="formulariotx.php"
+	name="quejas">
+
+<div class="info">
+<center><img src='../logoEntidad.gif'></center>
+<h4>$ENTIDAD_LARGO</h4>
+<br />
+Campos requeridos depende del tipo de solicitud ( <font color="#FF0000">*</font>
+)</div>
+
+<ul>
+	<li><label class="desc" id="title_tipoSolicitud"
+		for="tipoSolicitud">Tipo de Solicitud </label>
+	<div><select id="tipoSolicitud" name="tipoSolicitud"
+		class="field select maximun" tabindex="1">
+		<option value="0" selected="selected">Seleccione</option>
+		<option value="1">Petici&oacute;n</option>
+		<option value="2">Queja</option>
+		<option value="3">Reclamo</option>
+		<option value="4">Sugerencia</option>
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	&nbsp;
+
+	<li><label class="desc" id="title_tipoDocumento"
+		for="tipoDocumento">Tipo de Documento </label>
+	<div><select id="tipoDocumento" name="tipoDocumento"
+		class="field select maximun" tabindex="2">
+		<option value="0" selected="selected">Seleccione</option>
+		<option value="1">C&eacute;dula de ciudadan&iacute;a</option>
+		<option value="2">NIT</option>
+		<option value="3">C&eacute;dula extranjer&iacute;a</option>
+		<option value="4">Tarjeta de identidad</option>
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	&nbsp;
+
+	<li id="foli3" class="   "><label class="desc" id="lbl_numid"
+		for="campo_numid">N&uacute;mero de Identificaci&oacute;n
+	(s&oacute;lo n&uacute;meros) </label>
+	<div><input id="campo_numid" name="numid" type="text"
+		class="field text medium" value="" maxlength="11" tabindex="3"
+		onkeypressS="return alpha(event,numbers)" /> &nbsp;<font
+		color="#FF0000">*</font></div>
+	</li>
+
+	<li><label class="desc" id="title_Nombre" for="campo_nombre">
+	Nombre Remitente o Raz&oacute;n social </label> <span> <input
+		id="campo_nombre" name="nombre_remitente" type="text"
+		class="field text" value="" size="20" tabindex="4"
+		onkeypressS="return alpha(event,letters);" /> <label
+		for="campo_nombre">Nombres</label> </span> <span> <input
+		id="campo_apellido" name="apellidos_remitente" type="text"
+		class="field text" value="" size="20" tabindex="5"
+		onkeypressS="return alpha(event,letters);" /> &nbsp; <font
+		color="#FF0000">*</font> <label for="campo_apellido">Apellidos</label>
+	</span></li>
+
+	<li><label class="desc" id="lbl_direccion" for="campo_direccion">Direcci&oacute;n</label>
+	<div><input id="campo_direccion" name="direccion" type="text"
+		class="field text medium" value="" maxlength="50" tabindex="6"
+		onkeypressS="return alpha(event,numbers+letters+signs+custom)" />
+	&nbsp;<font color="#FF0000">*</font></div>
+	</li>
+
+	<li><label class="desc" id="lbl_direccion" for="campo_telefono">Tel&eacute;fono</label>
+	<div><input id="campo_telefono" name="telefono" type="text"
+		class="field text medium" value="" maxlength="10" tabindex="7"
+		onkeypressS="return alpha(event,numbers)" /> &nbsp;<font
+		color="#FF0000">*</font></div>
+	</li>
+
+	<li><label class="desc" id="lbl_email" for="campo_email">
+	E-mail </label>
+	<div><input id="campo_email" name="email" type="text"
+		class="field text medium" value="" maxlength="255" tabindex="8"></div>
+	</li>
+
+
+	<li id="foli112" class="   "><label class="desc" id="lbl_deptop"
+		for="label"> Departamento</label>
+	<div><select id="slc_depto" name="depto"
+		class="field select medium" tabindex="9" onchange="trae_municipio()">
+		<option value="0" selected="selected">Seleccione</option>
+		<?=$depto ?>
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	<li id="foli112" class="   "><label class="desc"
+		id="lbl_municipio" for="label2"> Municipio<img
+		src="images/loading_animated2.gif" width="48" height="48"
+		style="display: none" id="loader1" /> </label>
+	<div id="div-contenidos"><select id="slc_muncipio name="muni"
+		class="field select medium" tabindex="10">
+		<option value="0" selected="selected">Seleccione..</option>
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+
+<!-- 
+		<li><label class="desc" id="lbl_tema"
+		for="campo_tema">Tema </label>
+	<div><select id="campo_tema" name="tema"
+		class="field select maximun" tabindex="11">
+		<option value="0" selected="selected">Seleccione</option>
+		<option value="1">Acerca del Ministerio</option>
+		<option value="2">correlibre</option>
+		<option value="3">Protecci&oacute;n Social</option>
+		<option value="4">Atenci&oacute;n al Ciudadano</option>
+		<option value="5">Centro de Comunicaciones</option>
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	&nbsp;
+	-->
+
+		<li><label class="desc" id="lbl_mediorespuesta"
+		for="campo_mediorespuesta">Seleccione un medio por el cual se le dar&aacute; respuesta </label>
+	<div><select id="campo_mediorespuesta" name="mediorespuesta"
+		class="field select maximun" tabindex="11">
+		<option value="0" selected="selected" >Correo Electr&oacute;nico</option>
+		<option value="1">Correo Postal</option>
+		
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	&nbsp;
+
+	
+	<li><label class="desc" id="title_tipoPoblacion"
+		for="tipoPoblacion">Tipo de Poblaci&oacute;n </label>
+	<div><select id="tipoPoblacion" name="tipoPolablacion"
+		class="field select maximun" tabindex="12">
+		<option value="0" selected="selected">Seleccione</option>
+		<option value="1">Poblaci&oacute;n Desplazada</option>
+		<option value="2">Mujer Gestante</option>
+		<option value="3">Ni&ntilde;os, Ni&ntilde;as, Adolescentes</option>
+		<option value="4">Veterano Fueza P&uacute;blica</option>
+		<option value="5">Adulto Mayor</option>
+	</select> &nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	&nbsp;
+	
+	<li id="foli4" class="   "><label class="desc" id="lbl_asunto"
+		for="campo_asunto">Asunto</label>
+	<div><input id="campo_asunto" name="asunto" type="text"
+		class="field text large" value="" maxlength="255" tabindex="13" />
+	&nbsp;<font color="#FF0000">*</font></div>
+	</li>
+	<li id="foli111" class="    "><label class="desc" id="lbl_comentario"
+		for="campo_comentario">Comentario</label>
+
+	<div><textarea id="campo_comentario" name="comentario" class="field textarea small"
+		rows="10" cols="50" tabindex="14"></textarea> &nbsp;<font
+		color="#FF0000">*</font></div>
+	</li>
+	
+	<div>
+		<li id="adjuntos" class="   "><label class="desc" id="lbl_adjuntos"
+		for="campo_asunto">Adjuntos(Hasta 20M)</label>
+		<input id="campo_adjuntos" class="field file large" name="userfile[]" type="file" />		
+		</li>
+		<p>	<a onclick="addInputFile()">Adjuntar otro archivo</a></p>
+	</div>
+		
+
+	<li><label class="desc" id="lbl_captcha" for="campo_captcha">Im&aacute;gen de verificaci&oacute;n (Sensible a minusculas y mayusculas)</label>
+	<div><input id="campo_captcha" name="captcha" type="text"
+		class="field text small" value="" maxlength="5" tabindex="20"
+		onkeypressS="return alpha(event,numbers+letters+signs+custom)" alt="Digite las letras y n&uacute;meros de la im&aacute;gen" />
+	&nbsp;<font color="#FF0000">*</font><p><img src="/orfeo-3.8.2des/formularioWebcorrelibre/captcha/example.png" alt="CAPTCHA" /></p> </div>
+	</li>
+	
+		<li class="buttons"><input id="saveForm" type="submit"
+		value="Enviar" onclick="return valida_form();" /> <input
+		name="button" type="button" id="button" onclick="window.close();"
+		value="Cancelar" /></li>
+
+	<li style="display: none"><label for="comment">No llene
+	esto</label> <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+	</li>
+</ul>
+</form>
+
+</div>
+<!--container-->
+
+</body>
+</html>

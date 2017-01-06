@@ -1,0 +1,19 @@
+@page {
+  size: auto;/* es el valor por defecto */
+}
+@page :left {
+ margin-left: 0,2cm;
+ margin-right: 0cm;
+}
+@page :right {
+ margin-left: 0,2cm;
+ margin-right: 0cm;
+}
+@page :first {
+ margin-top: 0,2cm;
+ margin-bottom: 0cm;
+}
+#header, #nav, .noprint
+{
+display: none;
+}

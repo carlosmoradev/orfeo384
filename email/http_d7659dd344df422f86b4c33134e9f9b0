@@ -1,0 +1,7 @@
+HTTP/1.1 302 Moved Temporarily
+Location: https://ilpostimo.correlibre.org/owa/auth/logon.aspx?url=https://ilpostimo.correlibre.org/owa/Exchange/twolf/inbox&reason=0
+Set-Cookie: sessionid=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+Set-Cookie: cadata=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+Connection: close
+Content-Length: 0
+

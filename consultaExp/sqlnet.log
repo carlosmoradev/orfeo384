@@ -1,0 +1,188 @@
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2@debian)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 21-MAY-2010 15:46:32
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2@debian)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 10:19:26
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2@debian)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 10:20:11
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 12:15:37
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 13:11:31
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 13:55:59
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 14:41:32
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 24-MAY-2010 15:00:25
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 06-JUL-2010 10:06:40
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12545, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=zeusrac.supersolidaria.gov.co)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 06-JUL-2010 10:10:27
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12545
+    TNS-12545: Message 12545 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 12560
+    nt main err code: 515
+    TNS-00515: Message 515 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 110
+    nt OS err code: 0
