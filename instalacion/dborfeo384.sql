@@ -10975,7 +10975,6 @@ COPY departamento (dpto_codi, dpto_nomb, id_cont, id_pais) FROM stdin;
 --
 
 COPY dependencia (id, depe_codi, depe_nomb, dpto_codi, depe_codi_padre, muni_codi, depe_codi_territorial, dep_sigla, dep_central, dep_direccion, depe_num_interna, depe_num_resolucion, depe_rad_tp1, depe_rad_tp2, depe_rad_tp3, acto_admon, id_cont, id_pais, depe_estado, depe_rad_tp4) FROM stdin;
-27	9999	ARCHIVO HISTORICO	5	\N	631	0	HISTO	\N		\N	\N	\N	\N	\N		1	170	1	\N
 2	900	Dependencia de Pruebas 	11	\N	1	900	TEST	\N	\N	900	\N	900	900	900	\N	1	170	1	\N
 1	905	Pruebas Proveedor (Carlos Mora)	5	900	1	900	CARLOSMORA	\N	Carlos Mario Mora Restrepo (soporte.carlosmora.biz)	\N	\N	900	900	900		1	170	1	\N
 42	999	DEPENDENCIA DE SALIDA	5	\N	631	0	RAD	\N		\N	\N	\N	\N	\N		1	170	1	\N
