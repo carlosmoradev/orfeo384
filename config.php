@@ -114,7 +114,7 @@ $httpOrfeoRemoto         = " Por el momento OrfeoGPL no tiene Acceso Por Web Ext
 $httpWebOficial          = "http://www.correlibre.org";
 
 // Digitos de la Dependencia Minimo 1 maximo 5
-$digitosDependencia      = 4;
+$digitosDependencia      = 3;
 
 
 ini_set('include_path', '.:'.$PEAR_PATH);
